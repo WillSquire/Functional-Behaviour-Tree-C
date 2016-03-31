@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		F538A9B91CADB144009A95C6 /* Functional Behaviour Tree */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Functional Behaviour Tree"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F538A9BC1CADB144009A95C6 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		F538A9C31CADD714009A95C6 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +42,7 @@
 		F538A9B01CADB144009A95C6 = {
 			isa = PBXGroup;
 			children = (
+				F538A9C31CADD714009A95C6 /* .gitignore */,
 				F538A9BB1CADB144009A95C6 /* Functional Behaviour Tree */,
 				F538A9BA1CADB144009A95C6 /* Products */,
 			);

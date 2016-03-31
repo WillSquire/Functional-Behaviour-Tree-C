@@ -47,7 +47,6 @@ bool sequence(Node nodes[], Blackboard blackboard) {
 bool node_test_true(Blackboard blackboard) { return true; }
 bool node_test_false(Blackboard blackboard) { return false; }
 
-
 int main(int argc, const char * argv[]) {
     Node nodes[512];
     Blackboard blackboard;
