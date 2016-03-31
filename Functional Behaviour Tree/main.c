@@ -33,10 +33,10 @@ bool selector(Node nodes[], Blackboard blackboard) {
     //sprintf(buf, "%d", length);
     //printf("%d", nodes[0](blackboard));
     /*
-    for (int i = 0; i < length; i++) {
-        if (nodes[i](blackboard))
-        result = true;
-    }
+     for (int i = 0; i < length; i++) {
+     if (nodes[i](blackboard))
+     result = true;
+     }
      */
     
     return result;
@@ -52,7 +52,7 @@ bool basicNode(Blackboard blackboard) {
 
 
 int main(int argc, const char * argv[]) {
-    Node nodes[512]; 
+    Node nodes[512];
     Blackboard blackboard;
     nodes[0] = basicNode;
     nodes[1] = basicNode;
