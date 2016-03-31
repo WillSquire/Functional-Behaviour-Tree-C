@@ -8,55 +8,54 @@
 
 #include <stdio.h>
 
-// Bool
-typedef enum { false, true } bool;
+//------------------------------------------------------
+// Typedefs
+//------------------------------------------------------
 
-typedef struct {
-    //noeds
-} Blackboard;
-
+typedef enum {false, true} bool;
+typedef struct {} Blackboard;
 typedef bool (*Node)(Blackboard blackboard);
 
-void selector_add(Blackboard blackboard, Node node) {
-    //blackboard -> nodes.add();
-}
+//------------------------------------------------------
+// Functions
+//------------------------------------------------------
 
 bool selector(Node nodes[], Blackboard blackboard) {
-    
-    bool result = false;
-    int length = sizeof(nodes);///sizeof(nodes[0]);
-    
-    printf("Array length: %lu", (sizeof(nodes)/sizeof(nodes[0])));
-    
-    
-    //char buf[256];
-    //sprintf(buf, "%d", length);
-    //printf("%d", nodes[0](blackboard));
-    /*
-     for (int i = 0; i < length; i++) {
-     if (nodes[i](blackboard))
-     result = true;
-     }
-     */
-    
-    return result;
+    int i=0;
+    while (NULL!=nodes[i]) {
+        if (nodes[i](blackboard))
+            return true;
+        ++i;
+    }
+    return false;
 }
 
-bool sequence(Node nodes[]) {
+bool sequence(Node nodes[], Blackboard blackboard) {
+    int i=0;
+    while (NULL!=nodes[i]) {
+        if (!nodes[i](blackboard))
+            return false;
+        ++i;
+    }
     return true;
 }
 
-bool basicNode(Blackboard blackboard) {
-    return true;
-}
+//------------------------------------------------------
+// Unit Testing
+//------------------------------------------------------
+
+bool node_test_true(Blackboard blackboard) { return true; }
+bool node_test_false(Blackboard blackboard) { return false; }
 
 
 int main(int argc, const char * argv[]) {
     Node nodes[512];
     Blackboard blackboard;
-    nodes[0] = basicNode;
-    nodes[1] = basicNode;
-    selector(nodes, blackboard);
+    nodes[0] = node_test_true;
+    nodes[1] = node_test_true;
+    nodes[2] = node_test_false;
+    nodes[3] = NULL;
+    printf("%d \n", sequence(nodes, blackboard));
     
     return 0;
 }
