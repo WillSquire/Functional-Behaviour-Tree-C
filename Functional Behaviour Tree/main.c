@@ -12,15 +12,17 @@
 // Typedefs
 //------------------------------------------------------
 
+typedef struct {
+    int x;
+} Blackboard;
 typedef enum {false, true} bool;
-typedef struct {} Blackboard;
-typedef bool (*Node)(Blackboard blackboard);
+typedef bool (*Node)(Blackboard* blackboard);
 
 //------------------------------------------------------
 // Functions
 //------------------------------------------------------
 
-bool selector(Node nodes[], Blackboard blackboard) {
+bool selector(Node nodes[], Blackboard* blackboard) {
     int i=0;
     while (NULL!=nodes[i]) {
         if (nodes[i](blackboard))
@@ -30,7 +32,8 @@ bool selector(Node nodes[], Blackboard blackboard) {
     return false;
 }
 
-bool sequence(Node nodes[], Blackboard blackboard) {
+bool sequence(Node nodes[], Blackboard* blackboard) {
+    printf("%d\n", blackboard->x);
     int i=0;
     while (NULL!=nodes[i]) {
         if (!nodes[i](blackboard))
@@ -44,17 +47,18 @@ bool sequence(Node nodes[], Blackboard blackboard) {
 // Unit Testing
 //------------------------------------------------------
 
-bool node_test_true(Blackboard blackboard) { return true; }
-bool node_test_false(Blackboard blackboard) { return false; }
+bool node_test_true(Blackboard* blackboard) { return true; }
+bool node_test_false(Blackboard* blackboard) { return false; }
 
 int main(int argc, const char * argv[]) {
     Node nodes[512];
     Blackboard blackboard;
+    blackboard.x = 9;
     nodes[0] = node_test_true;
     nodes[1] = node_test_true;
     nodes[2] = node_test_false;
     nodes[3] = NULL;
-    printf("%d \n", sequence(nodes, blackboard));
+    printf("%d \n", sequence(nodes, &blackboard));
     
     return 0;
 }
