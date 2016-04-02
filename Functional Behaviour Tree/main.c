@@ -12,10 +12,10 @@
 // Typedefs
 //------------------------------------------------------
 
-typedef struct {
-    int x;
-} Blackboard;
 typedef enum {false, true} bool;
+typedef struct {
+    bool logged_in;
+} Blackboard;
 typedef bool (*Node)(Blackboard* blackboard);
 
 //------------------------------------------------------
@@ -33,7 +33,6 @@ bool selector(Node nodes[], Blackboard* blackboard) {
 }
 
 bool sequence(Node nodes[], Blackboard* blackboard) {
-    printf("%d\n", blackboard->x);
     int i=0;
     while (NULL!=nodes[i]) {
         if (!nodes[i](blackboard))
@@ -47,18 +46,69 @@ bool sequence(Node nodes[], Blackboard* blackboard) {
 // Unit Testing
 //------------------------------------------------------
 
-bool node_test_true(Blackboard* blackboard) { return true; }
-bool node_test_false(Blackboard* blackboard) { return false; }
+//------------------------------------------------------
+// Actions
+//------------------------------------------------------
+
+bool action_logged_in_header(Blackboard* blackboard) {
+    printf("<header>Welcome logged-in user</header\n");
+    return true;
+}
+
+bool action_logged_out_header(Blackboard* blackboard) {
+    printf("<header>Sign in?</header\n");
+    return true;
+}
+
+//------------------------------------------------------
+// Conditions
+//------------------------------------------------------
+
+bool is_logged_in(Blackboard* blackboard) {
+    return blackboard->logged_in;
+}
+
+//------------------------------------------------------
+// Sequences
+//------------------------------------------------------
+
+bool logged_in_header(Blackboard* blackboard) {
+    return sequence((Node[]){
+        is_logged_in,
+        action_logged_in_header,
+        NULL
+    }, blackboard);
+}
+
+//------------------------------------------------------
+// Selectors
+//------------------------------------------------------
+
+bool header(Blackboard* blackboard) {
+    return selector((Node[]){
+        logged_in_header,
+        action_logged_out_header,
+        NULL
+    }, blackboard);
+}
 
 int main(int argc, const char * argv[]) {
-    Node nodes[512];
+    
     Blackboard blackboard;
-    blackboard.x = 9;
-    nodes[0] = node_test_true;
-    nodes[1] = node_test_true;
-    nodes[2] = node_test_false;
-    nodes[3] = NULL;
-    printf("%d \n", sequence(nodes, &blackboard));
+    blackboard.logged_in = false;
+    
+    header(&blackboard);
+    
+//    blackboard.x = 11;
+    
+//    Node nodes[] = {
+//        is_under_10,
+//        node_test_false,
+//        node_test_false,
+//        NULL
+//    };
+    
+//    printf("%d \n", sequence(nodes, &blackboard));
     
     return 0;
 }
