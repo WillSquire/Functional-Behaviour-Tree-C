@@ -15,6 +15,7 @@
 typedef enum {false, true} bool;
 typedef struct {
     bool logged_in;
+//    char* response;
 } Blackboard;
 typedef bool (*Node)(Blackboard* blackboard);
 
@@ -96,19 +97,11 @@ int main(int argc, const char * argv[]) {
     
     Blackboard blackboard;
     blackboard.logged_in = false;
+//    blackboard.response = "lalala";
     
     header(&blackboard);
     
-//    blackboard.x = 11;
-    
-//    Node nodes[] = {
-//        is_under_10,
-//        node_test_false,
-//        node_test_false,
-//        NULL
-//    };
-    
-//    printf("%d \n", sequence(nodes, &blackboard));
+//    printf("%s", blackboard.response);
     
     return 0;
 }
