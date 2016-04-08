@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F538A9BD1CADB144009A95C6 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = F538A9BC1CADB144009A95C6 /* main.c */; };
+		F538A9D91CB83364009A95C6 /* functional_behaviour_tree.c in Sources */ = {isa = PBXBuildFile; fileRef = F538A9D71CB83364009A95C6 /* functional_behaviour_tree.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +27,8 @@
 		F538A9B91CADB144009A95C6 /* Functional Behaviour Tree */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Functional Behaviour Tree"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F538A9BC1CADB144009A95C6 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		F538A9C31CADD714009A95C6 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		F538A9D71CB83364009A95C6 /* functional_behaviour_tree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = functional_behaviour_tree.c; sourceTree = "<group>"; };
+		F538A9D81CB83364009A95C6 /* functional_behaviour_tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = functional_behaviour_tree.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,8 @@
 			isa = PBXGroup;
 			children = (
 				F538A9BC1CADB144009A95C6 /* main.c */,
+				F538A9D71CB83364009A95C6 /* functional_behaviour_tree.c */,
+				F538A9D81CB83364009A95C6 /* functional_behaviour_tree.h */,
 			);
 			path = "Functional Behaviour Tree";
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F538A9D91CB83364009A95C6 /* functional_behaviour_tree.c in Sources */,
 				F538A9BD1CADB144009A95C6 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

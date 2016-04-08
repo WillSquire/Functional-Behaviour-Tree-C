@@ -7,41 +7,7 @@
 //
 
 #include <stdio.h>
-
-//------------------------------------------------------
-// Typedefs
-//------------------------------------------------------
-
-typedef enum {false, true} bool;
-typedef struct {
-    bool logged_in;
-//    char* response;
-} Blackboard;
-typedef bool (*Node)(Blackboard* blackboard);
-
-//------------------------------------------------------
-// Functions
-//------------------------------------------------------
-
-bool selector(Node nodes[], Blackboard* blackboard) {
-    int i=0;
-    while (NULL!=nodes[i]) {
-        if (nodes[i](blackboard))
-            return true;
-        ++i;
-    }
-    return false;
-}
-
-bool sequence(Node nodes[], Blackboard* blackboard) {
-    int i=0;
-    while (NULL!=nodes[i]) {
-        if (!nodes[i](blackboard))
-            return false;
-        ++i;
-    }
-    return true;
-}
+#include "functional_behaviour_tree.h"
 
 //------------------------------------------------------
 // Unit Testing
