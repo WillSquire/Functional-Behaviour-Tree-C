@@ -1,12 +1,12 @@
 //
-//  functional_behaviour_tree.c
-//  Functional Behaviour Tree
+//  libfunctionalbehaviourtree.c
+//  functionalbehaviourtree
 //
-//  Created by Will Squire on 08/04/2016.
+//  Created by Will Squire on 14/04/2016.
 //  Copyright © 2016 Will Squire. All rights reserved.
 //
 
-#include "functional_behaviour_tree.h"
+#include "libfunctionalbehaviourtree.h"
 
 //------------------------------------------------------
 // Functions (Implementation)

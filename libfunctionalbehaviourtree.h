@@ -1,13 +1,13 @@
 //
-//  functional_behaviour_tree.h
-//  Functional Behaviour Tree
+//  libfunctionalbehaviourtree.h
+//  functionalbehaviourtree
 //
-//  Created by Will Squire on 08/04/2016.
+//  Created by Will Squire on 14/04/2016.
 //  Copyright © 2016 Will Squire. All rights reserved.
 //
 
-#ifndef functional_behaviour_tree_h
-#define functional_behaviour_tree_h
+#ifndef libfunctionalbehaviourtree_h
+#define libfunctionalbehaviourtree_h
 
 #include <stdio.h>
 
@@ -16,10 +16,7 @@
 //------------------------------------------------------
 
 typedef enum {false, true} bool;
-typedef struct {
-    bool logged_in;
-    //    char* response;
-} Blackboard;
+typedef struct Blackboard Blackboard;
 typedef bool (*Node)(Blackboard* blackboard);
 
 //------------------------------------------------------
@@ -29,4 +26,4 @@ typedef bool (*Node)(Blackboard* blackboard);
 bool selector(Node nodes[], Blackboard* blackboard);
 bool sequence(Node nodes[], Blackboard* blackboard);
 
-#endif /* functional_behaviour_tree_h */
+#endif /* libfunctionalbehaviourtree_h */
