@@ -1,13 +1,13 @@
 //
-//  libfunctionalbehaviourtree.h
-//  functionalbehaviourtree
+//  functional_behaviour_tree.h
+//  Functional Behaviour Tree
 //
-//  Created by Will Squire on 14/04/2016.
+//  Created by Will Squire on 08/04/2016.
 //  Copyright © 2016 Will Squire. All rights reserved.
 //
 
-#ifndef libfunctionalbehaviourtree_h
-#define libfunctionalbehaviourtree_h
+#ifndef LIBFUNCTIONALBEHAVIOURTREE_FUNCTIONAL_BEHAVIOUR_TREE_H
+#define LIBFUNCTIONALBEHAVIOURTREE_FUNCTIONAL_BEHAVIOUR_TREE_H
 
 #include <stdio.h>
 
@@ -26,4 +26,4 @@ typedef bool (*Node)(Blackboard* blackboard);
 bool selector(Node nodes[], Blackboard* blackboard);
 bool sequence(Node nodes[], Blackboard* blackboard);
 
-#endif /* libfunctionalbehaviourtree_h */
+#endif //LIBFUNCTIONALBEHAVIOURTREE_FUNCTIONAL_BEHAVIOUR_TREE_H
